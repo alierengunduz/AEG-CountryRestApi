@@ -7,6 +7,9 @@ import axios from "axios";
 const MainComponent = ({ products, setProducts }) => {
 
   const [selectedRegion, setSelectedRegion] = useState(null);
+  const [search , setSearch] = useState("");
+
+    
 
   const filterByRegion = async (region) => {
     try {
@@ -56,9 +59,11 @@ const MainComponent = ({ products, setProducts }) => {
   ];
   return (
     <div className="bg-gray-900 min-h-[calc(100vh-80px)]">
-      <div className="pt-5 flex items-center justify-between px-10">
+      <div className="pt-5 flex sm:flex-row flex-col sm:gap-y-0 gap-y-5 items-center justify-between px-10  py-3">
         <div className="relative">
           <input
+            value={search} 
+            onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Search for a country..."
             className="bg-gray-600 py-3 px-10 rounded-md text-white"
@@ -95,12 +100,17 @@ const MainComponent = ({ products, setProducts }) => {
         </div>
       </div>
       {/* Product Components */}
-      <div className="text-white p-8 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 w-full gap-6">
-        {products &&
-          products.map((product, index) => (
-            <Product key={index} product={product} />
-          ))}
-      </div>
+      <div className="text-white p-8 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  w-full gap-6">
+  {products &&
+    products
+      .filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+      )
+      .map((product, index) => (
+        <Product key={index} product={product} />
+      ))} 
+</div>
+
     </div>
   );
 };

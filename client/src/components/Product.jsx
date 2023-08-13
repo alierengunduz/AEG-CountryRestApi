@@ -3,7 +3,7 @@ import { IoRadioButtonOnOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 const Product = ({ product }) => {
   return (
-    <div className="border w-full h-[22rem] rounded-lg shadow-md shadow-white  hover:scale-105 transition-all duration-200">
+    <div className="border md:w-full sm:w-[70%] w-full m-auto h-[22rem] rounded-lg shadow-md shadow-white  hover:scale-105 transition-all duration-200">
       <div className="h-[50%] p-2">
         <img
           src={product.flag}
@@ -32,7 +32,7 @@ const Product = ({ product }) => {
           </div>
 
           <Link
-            className="bg-gradient-to-tr from-cyan-400 w-[30%] flex items-center justify-center rounded-full"
+            className="bg-gradient-to-tr from-cyan-400 sm:w-[30%] w-[20%] flex items-center justify-center rounded-full"
             to={`/${product.name}`}
           >
             <IoRadioButtonOnOutline className="text-white" size={25} />
