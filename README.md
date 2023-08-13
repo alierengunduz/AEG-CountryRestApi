@@ -1,2 +1,2 @@
 # CountryRestApi
-https://vercel.com/aegcoder/country-rest-api/5zYA1cUHVek8ew294BhKTXEnYWKi
+https://country-rest-1r1vc85pl-aegcoder.vercel.app/
