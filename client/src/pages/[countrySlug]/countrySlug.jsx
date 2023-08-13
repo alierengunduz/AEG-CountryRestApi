@@ -23,24 +23,24 @@ const CountrySlug = () => {
  
 
   return (
-    <div className="bg-gray-900 min-h-[calc(100vh-80px)] text-gray-300 flex items-center relative justify-between px-10">
+    <div className="bg-gray-900 min-h-[calc(100vh-80px)] text-gray-300 flex md:flex-row flex-col items-center relative justify-between md:px-10 px-2">
       <Link
         to="/"
-        className="flex items-center gap-x-1 absolute top-10 text-xl font-bold left-10 border-2 py-2 hover:bg-gray-400 hover:text-black cursor-pointer hover:border-transparent transition-all duration-300  px-5 rounded-md border-dashed"
+        className="flex  items-center gap-x-1 absolute top-10 text-xl font-bold left-10 border-2 py-2 hover:bg-gray-400 hover:text-black cursor-pointer hover:border-transparent transition-all duration-300  px-5 rounded-md border-dashed"
       >
         <button> Back</button>
         <span>
           <BsFillArrowLeftSquareFill size={25} />
         </span>
       </Link>
-      <div className="w-[50%] border h-[30rem]">
+      <div className="md:w-[50%] w-full border md:h-[29rem] h-[15rem] md:mt-20 mt-32 rounded-md">
         <img
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain rounded-md"
           src={countryData.flag}
           alt=""
         />
       </div>
-      <div className="w-[50%] h-[30rem] flex flex-col justify-around">
+      <div className="md:w-[50%] w-full h-[30rem] flex flex-col justify-around md:mt-16 mt-8">
         <h1 className="text-white text-4xl pb-5 font-bold uppercase text-center">
           {countryData.name}
         </h1>
@@ -95,15 +95,15 @@ const CountrySlug = () => {
         </ul>
         <div className="flex items-center justify-center text-center gap-x-5 pt-10">
           <div>
-            <h1 className="font-bold text-xl tracking-wider border-b border-red-500">
+            <h1 className="font-bold md:text-xl text-base tracking-wider border-b border-red-500">
               Border Countries:
             </h1>
           </div>
-          <ul className="grid grid-cols-3 gap-y-4 gap-x-5">
+          <ul className="grid md:grid-cols-3 grid-cols-4 gap-y-4 gap-x-10 p-8">
             {
                countryData.borders && countryData.borders.map((border,index) => (
                 <li key={index} className="font-bold tracking-wider text-lg">
-                  <span className="text-gray-100 text-base bg-red-500 py-1 px-4 rounded-md">{border}</span>{" "}
+                  <span className="text-gray-100 md:text-base text-sm bg-red-500 py-1 px-2.5 rounded-md">{border}</span>{" "}
                 </li>
               ))
             }
